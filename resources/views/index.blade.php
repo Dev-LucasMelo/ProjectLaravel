@@ -19,7 +19,7 @@
 
     <section class="container mb-2 d-flex flex-row align-items-center justify-content-end">
         <div>
-            <a><img src="/images/criar.svg" alt=""> Cadastrar</a>
+            <a href="{{Route('create')}}"><img src="/images/criar.svg" alt=""> Cadastrar</a>
         </div>
     </section>
 

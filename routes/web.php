@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\UsuarioController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', [UsuarioController::class, 'index'])->name('index');
+
+Route::get('/create', [UsuarioController::class, 'create'])->name('create');
+
+Route::Post('/create', [UsuarioController::class, 'store'])->name('store');
