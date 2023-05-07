@@ -16,8 +16,8 @@ use App\Http\Controllers\UsuarioController;
 */
 
 
-Route::get('/', [UsuarioController::class, 'index'])->name('index');
+Route::get('/', [UsuarioController::class, 'index'])->name('index'); //get data (READ)
+Route::get('/create', [UsuarioController::class, 'create'])->name('create'); //View
+Route::Post('/create', [UsuarioController::class, 'store'])->name('store'); //Post form
 
-Route::get('/create', [UsuarioController::class, 'create'])->name('create');
 
-Route::Post('/create', [UsuarioController::class, 'store'])->name('store');
