@@ -28,10 +28,31 @@ class UsuarioController
             'idade' => 'required',
             'profissao' => 'required',
         ]);
-        //request sao os dados que vem do form 
 
         Usuario::create($request->post());
         return redirect()->route('index');
     }
 
+    public function edit($id){
+
+        $usuario = Usuario::findOrFail($id);
+
+        return View('edit',compact('usuario'));
+    }
+
+    public function Update(Request $request,$id){
+
+        $usuario = Usuario::findOrFail($id);
+
+        $request->validate([
+            'nome' => 'required', 
+            'idade' => 'required',
+            'profissao' => 'required',
+        ]);
+
+        $usuario->fill($request->post()); //Fill "Preenche" um model com os dados do request
+        $usuario->save(); //  "Salvando os novos dados "
+        return redirect()->route('index');// Redirecionando
+        
+    }
 }

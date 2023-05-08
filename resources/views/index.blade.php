@@ -19,7 +19,7 @@
 
     <section class="container mb-2 d-flex flex-row align-items-center justify-content-end">
         <div>
-            <a href="{{ Route('create') }}"><img src="/images/criar.svg" alt=""> Cadastrar</a>
+            <a href="{{ Route('create.view') }}"><img src="/images/criar.svg" alt=""> Cadastrar</a>
         </div>
     </section>
 
@@ -44,17 +44,19 @@
         @foreach ($usuarios as $user)
             <div class="row border pt-2 pb-1 d-flex align-items-center justify-content-center">
                 <div class="col-4">
-                    <h6>{{$user->nome}}</h6>
+                    <h6>{{ $user->nome }}</h6>
                 </div>
                 <div class="col-2">
-                    <h6>{{$user->idade}}</h6>
+                    <h6>{{ $user->idade }}</h6>
                 </div>
                 <div class="col-3">
-                    <h6>{{$user->profissao}}</h6>
+                    <h6>{{ $user->profissao }}</h6>
                 </div>
                 <div class="col-3 row d-flex align-items-center justify-content-start">
                     <div class="col-md-3 d-flex align-items-center justify-content-start">
-                        <img src="/images/editar.svg" alt="">
+                        <a href="{{Route('edit.view',$user)}}">
+                            <img src="/images/editar.svg" alt="">
+                        </a>
                     </div>
                     <div class="col-2 d-flex align-items-center justify-content-start">
                         <img src="/images/lixoIcon.svg" alt="">
