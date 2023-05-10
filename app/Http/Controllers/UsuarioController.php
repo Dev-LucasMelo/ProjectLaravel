@@ -30,7 +30,7 @@ class UsuarioController
         ]);
 
         Usuario::create($request->post());
-        return redirect()->route('index');
+        return redirect(route('index'))->with(['alert' => 'Usuario criado com sucesso']);
     }
 
     public function edit($id){
@@ -52,7 +52,13 @@ class UsuarioController
 
         $usuario->fill($request->post()); //Fill "Preenche" um model com os dados do request
         $usuario->save(); //  "Salvando os novos dados "
-        return redirect()->route('index');// Redirecionando
-        
+        return redirect(route('index'))->with(['alert' => 'Usuario Atualizado com sucesso']);// Redirecionando
+    }
+    
+    public function delete($id){
+        $usuario = Usuario::findOrFail($id);
+
+        $usuario->delete();
+        return redirect(route('index'))->with(['alert' => 'Usuario deletado com sucesso']);
     }
 }

@@ -17,6 +17,14 @@
         </div>
     </header>
 
+    <section class="container mb-3">
+        @if(session('alert'))
+            <div class='alert alert-success'>
+                <p>{{session('alert')}}</p>
+            </div>
+        @endif   
+    </section>
+
     <section class="container mb-2 d-flex flex-row align-items-center justify-content-end">
         <div>
             <a href="{{ Route('create.view') }}"><img src="/images/criar.svg" alt=""> Cadastrar</a>
@@ -59,7 +67,9 @@
                         </a>
                     </div>
                     <div class="col-2 d-flex align-items-center justify-content-start">
-                        <img src="/images/lixoIcon.svg" alt="">
+                        <a href="{{Route('delete.user',$user)}}">
+                            <img src="/images/lixoIcon.svg" alt="">
+                        </a>
                     </div>
 
                 </div>
